@@ -1,0 +1,2552 @@
+{
+  "yasf": {
+    "globals": {
+      "background": {"r": 0.3, "g": 0.4, "b": 0.8},
+      "ambient": {"r": 0.8, "g": 0.7, "b": 0.8, "intensity": 1.0},
+      "fog": {
+        "color": {"r": 0.8, "g": 0.6, "b": 0.7},
+        "near": 1.0,
+        "far": 300.0
+      },
+      "skybox": {
+        "size": {"x": 200, "y": 100, "z": 200},
+        "center": {"x": 0, "y": 0, "z": 0},
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "intensity": 1.0,
+        "front": "scenes/textures/pz.jpg",
+        "back": "scenes/textures/nz.jpg",
+        "up": "scenes/textures/py.jpg",
+        "down": "scenes/textures/ny.jpg",
+        "left": "scenes/textures/nx.jpg",
+        "right": "scenes/textures/px.jpg"
+      }
+    },
+    "cameras": {
+      "initial": "cam1",
+      "cam1": {
+        "type": "perspective",
+        "angle": 90,
+        "near": 0.1,
+        "far": 1000,
+        "location": {"x": 20, "y": -20, "z": -20},
+        "target": {"x": 0, "y": -40, "z": 0}
+      },
+      "left": {
+        "type": "orthogonal",
+        "near": 0.1,
+        "far": 1000,
+        "location": {"x": 80, "y": 0, "z": 0},
+        "target": {"x": 0, "y": 0, "z": 0},
+        "left": -40,
+        "right": 40,
+        "top": 40,
+        "bottom": -40
+      },
+      "right": {
+        "type": "orthogonal",
+        "near": 0.1,
+        "far": 1000,
+        "location": {"x": -80, "y": 0, "z": 0},
+        "target": {"x": 0, "y": 0, "z": 0},
+        "left": -40,
+        "right": 40,
+        "top": 40,
+        "bottom": -40
+      },
+      "top": {
+        "type": "orthogonal",
+        "near": 0.1,
+        "far": 1000,
+        "location": {"x": 0, "y": 80, "z": 0},
+        "target": {"x": 0, "y": 0, "z": 0},
+        "left": -40,
+        "right": 40,
+        "top": 40,
+        "bottom": -40
+      },
+      "bottom": {
+        "type": "orthogonal",
+        "near": 0.1,
+        "far": 1000,
+        "location": {"x": 0, "y": -80, "z": 0},
+        "target": {"x": 0, "y": 0, "z": 0},
+        "left": -40,
+        "right": 40,
+        "top": 40,
+        "bottom": -40
+      }
+    },
+    "textures": {
+      "tabletex": {"filepath": "scenes/textures/table.png", "isVideo": false},
+      "pinetex": {"filepath": "scenes/textures/pine.png", "isVideo": false},
+      "vasetex": {"filepath": "scenes/textures/vase.png", "isVideo": false},
+      "treetrunktex": {"filepath": "scenes/textures/treeTrunk.jpg", "isVideo": false},
+      "treebodylightstex": {"filepath": "scenes/textures/treeBodyLights.jpg", "isVideo": false},
+      "treestartex": {"filepath": "scenes/textures/goldstar.jpg", "isVideo": false},
+      "christmasballtex": {
+        "filepath": "scenes/textures/christmasBall.jpg", 
+        "isVideo": false,
+        "mipmap0": "scenes/textures/christmasBall.jpg",
+        "mipmap1": "scenes/textures/christmasBall-3000x3000.jpg",
+        "mipmap2": "scenes/textures/christmasBall-1000x1000.jpg",
+        "mipmap3": "scenes/textures/christmasBall-500x500.jpg"
+      },
+      "presenttex": {"filepath": "scenes/textures/present.jpg", "isVideo": false},
+      "candycanetex": {"filepath": "scenes/textures/candyCane.jpg", "isVideo": false},
+      "cabintex": {"filepath": "scenes/textures/cabin.jpg", "isVideo": false},
+      "doortex": {"filepath": "scenes/textures/door.jpg", "isVideo": false},
+      "bricktex": {"filepath": "scenes/textures/bricks.jpg", "isVideo": false},
+      "snowtex": {"filepath": "scenes/textures/snow.jpg", "isVideo": false},
+      "snowbumptex": {"filepath": "scenes/textures/snowbump.jpg", "isVideo": false},
+      "roof": {"filepath": "scenes/textures/roof.jpg", "isVideo": false},
+      "goldtex": {"filepath": "scenes/textures/gold.jpg", "isVideo": false},
+      "nutcrackerfacetex": {"filepath": "scenes/textures/nutcracker1.jpg", "isVideo": false},
+      "fireplacelefttex": {"filepath": "scenes/textures/fireplace-left.jpg", "isVideo": false},
+      "fireplacerighttex": {"filepath": "scenes/textures/fireplace-right.jpg", "isVideo": false},
+      "watertex":{"filepath": "scenes/textures/water.mp4", "isVideo": true},
+      "cocaadtex": {"filepath": "scenes/textures/cocaad.jpg", "isVideo": false},
+      "metaladtex": {"filepath": "scenes/textures/metalad.jpg", "isVideo": false}
+
+    },
+    "materials": {
+      "tablemat": {
+        "color": {"r": 0.8, "g": 0.8, "b": 0.8},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 10,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "tabletex",
+        "texlength_s": 1,
+        "texlength_t": 1
+      },
+      "floormat": {
+        "color": {"r": 1.0, "g": 1.0, "b": 1.0},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.25, "g": 0.25, "b": 0.25},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "snowtex",
+        "texlength_s": 2,
+        "texlength_t": 2,
+        "bumpref": "snowbumptex",
+        "twosided": true
+      },
+      "pinemat": {
+        "color": {"r": 0.8, "g": 0.8, "b": 0.8},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "pinetex",
+        "texlength_s": 1,
+        "texlength_t": 1,
+        "wireframe": true
+      },
+      "vasemat": {
+        "color": {"r": 0.8, "g": 0.8, "b": 0.8},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "vasetex",
+        "texlength_s": 1,
+        "texlength_t": 1,
+        "shading": true
+      },
+      "treetrunkmat": {
+        "color": {"r": 0.6, "g": 0.3, "b": 0.1},
+        "specular": {"r": 0.1, "g": 0.1, "b": 0.1},
+        "shininess": 0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "treetrunktex",
+        "texlength_s": 1,
+        "texlength_t": 4
+      },
+      "treebodylightsmat": {
+        "color": {"r": 0.2, "g": 0.5, "b": 0.2},
+        "specular": {"r": 0.1, "g": 0.1, "b": 0.1},
+        "shininess": 10,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "treebodylightstex",
+        "texlength_s": 1,
+        "texlength_t": 1
+      },
+      "treestarmat": {
+        "color": {"r": 1.0, "g": 1.0, "b": 0.0},
+        "specular": {"r": 0.1, "g": 0.1, "b": 0.1},
+        "shininess": 10,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "treestartex",
+        "texlength_s": 1,
+        "texlength_t": 1
+      },
+      "christmasballmat": {
+        "color": {"r": 0.8, "g": 0.8, "b": 0.8},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "christmasballtex",
+        "texlength_s": 12,
+        "texlength_t": 12
+      },
+      "presentmat": {
+        "color": {"r": 0.8, "g": 0.8, "b": 0.8},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "presenttex",
+        "texlength_s": 2,
+        "texlength_t": 2,
+        "twosided": true
+      },
+      "candycanemat": {
+        "color": {"r": 0.8, "g": 0.8, "b": 0.8},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "wireframe": true,
+        "opacity": 1.0,
+        "textureref": "candycanetex",
+        "texlength_s": 4,
+        "texlength_t": 1,
+        "twosided": true
+      },
+      "snowmanmat": {
+        "color": {"r": 1.0, "g": 1.0, "b": 1.0},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 10.0,
+        "emissive": {"r": 0.25, "g": 0.25, "b": 0.25},
+        "transparent": true,
+        "opacity": 1.0,
+        "twosided": false
+      },
+      "snowmanhatmat": {
+        "color": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "twosided": false
+      },
+      "snowmannosemat": {
+        "color": {"r": 1.0, "g": 0.5, "b": 0.0},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "twosided": false
+      },
+      "cabinmat": {
+        "color": {"r": 0.8, "g": 0.8, "b": 0.8},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "cabintex",
+        "texlength_s": 1,
+        "texlength_t": 1,
+        "twosided": true
+      },
+      "doormat": {
+        "color": {"r": 0.6, "g": 0.3, "b": 0.1},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "doortex",
+        "texlength_s": 1,
+        "texlength_t": 1
+      },
+      "chimneymat": {
+        "color": {"r": 0.6, "g": 0.3, "b": 0.1},
+        "specular": {"r": 0.1, "g": 0.1, "b": 0.1},
+        "shininess": 0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "bricktex",
+        "texlength_s": 1,
+        "texlength_t": 1
+      },
+      "roofcabinmat": {
+        "color": {"r": 0.6, "g": 0.3, "b": 0.1},
+        "specular": {"r": 0.5, "g": 0.2, "b": 0.2},
+        "shininess": 10,
+        "emissive": {"r": 0.05, "g": 0.02, "b": 0.01},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "roof",
+        "texlength_s": 1,
+        "texlength_t": 1,
+        "twosided": true
+      },
+      "goldmat": {
+        "color": {"r": 1.0, "g": 0.8, "b": 0},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "goldtex",
+        "texlength_s": 4,
+        "texlength_t": 4
+      },
+      "blackmat": {
+        "color": {"r": 0.03, "g": 0.03, "b": 0.03},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0
+      },
+      "redmat": {
+        "color": {"r": 0.8, "g": 0.0, "b": 0.0},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0
+      },
+      "whitemat": {
+        "color": {"r": 0.8, "g": 0.8, "b": 0.8},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0
+      },
+      "beigemat": {
+        "color": {"r": 0.8, "g": 0.5, "b": 0.3},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0
+      },
+      "nutcrackerfacemat": {
+        "color": {"r": 0.8, "g": 0.8, "b": 0.8},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "nutcrackerfacetex",
+        "texlength_s": 2.8,
+        "texlength_t": 3.2,
+        "twosided": true
+      },
+      "windowframemat": {
+        "color": {"r": 0.6, "g": 0.3, "b": 0.1},
+        "specular": {"r": 0.1, "g": 0.1, "b": 0.1},
+        "shininess": 0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "bricktex",
+        "texlength_s": 1,
+        "texlength_t": 1
+      },
+      "glassmat": {
+        "color": {"r": 0.8, "g": 0.8, "b": 0.8},
+        "specular": {"r": 0.4, "g": 0.4, "b": 0.4},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": true,
+        "opacity": 0.3
+      },
+      "fireplaceleftmat": {
+        "color": {"r": 0.8, "g": 0.8, "b": 0.8},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "fireplacelefttex",
+        "texlength_s": 2,
+        "texlength_t": 2
+      },
+      "fireplacerightmat": {
+        "color": {"r": 0.8, "g": 0.8, "b": 0.8},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "fireplacerighttex",
+        "texlength_s": 2,
+        "texlength_t": 2
+      },
+      "watermat": {
+        "color": {"r": 0.1, "g": 0.1, "b": 1.0},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": true,
+        "opacity": 0.5,
+        "textureref": "watertex",
+        "texlength_s": 10,
+        "texlength_t": 10
+      },
+      "streetlampshademat": {
+        "color": {"r": 0.8, "g": 0.8, "b": 0.8},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "twosided": true
+      },
+      "cocaadmat": {
+        "color": {"r": 0.8, "g": 0.8, "b": 0.8},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "cocaadtex",
+        "texlength_s": 8,
+        "texlength_t": 4
+      },
+      "metaladmat": {
+        "color": {"r": 0.8, "g": 0.8, "b": 0.8},
+        "specular": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "shininess": 0.0,
+        "emissive": {"r": 0.0, "g": 0.0, "b": 0.0},
+        "transparent": false,
+        "opacity": 1.0,
+        "textureref": "metaladtex",
+        "texlength_s": 2,
+        "texlength_t": 2
+      }
+    },
+    "graph": {
+      "rootid": "scene",
+      "scene": {
+        "type": "node",
+        "children": {
+          "pointlight": {
+            "type": "pointlight",
+            "color": {"r": 1.0, "g": 1.0, "b": 1.0},
+            "intensity": 1.0,
+            "distance": 100.0,
+            "decay": 0.0,
+            "castshadow": false,
+            "position": {
+                "x": 0,
+                "y": 20,
+                "z": 0
+            }
+          },
+          "spotlight": {
+            "type": "spotlight",
+            "color": {"r": 1.0, "g": 1.0, "b": 0},
+            "intensity": 10.0,
+            "distance": 100.0,
+            "decay": 0.1,
+            "castshadow": true,
+            "penumbra": 0.2,
+            "position": {
+                "x": 0,
+                "y": 30,
+                "z": -15
+            },
+            "target": {
+                "x": 5,
+                "y": 10,
+                "z": 15
+            },
+            "angle": 40
+          },
+          "directionallight": {
+            "type": "directionallight",
+            "color": {"r": 1.0, "g": 1.0, "b": 0.5},
+            "intensity": 1.5,
+            "castshadow": true,
+            "position": {
+                "x": -20,
+                "y": 20,
+                "z": 20
+            }
+          },
+          "nodesList" : [
+            "christmastreenode",
+            "floor",
+            "snowmannode",
+            "nutcrackernode",
+            "rivernode",
+            "forestnode",
+            "streetlampsnode",
+            "santachairnode",
+            "christmasplacard"
+          ],
+          "lodsList": [
+            "cabinlod"
+          ]
+        }
+      },
+        "santachairnode": {
+          "type": "node",
+          "transforms": [
+            { "type": "translate", "amount": { "x": -40, "y": -47.5, "z": 10 } },
+            { "type": "rotate", "amount": { "x": 0, "y": 180, "z": 0 } }
+          ],
+          "children": {
+            "nodesList": [
+              "chairseat",
+              "chairleftside",
+              "chairrightside",
+              "chairleftarmrest",
+              "chairrightarmrest",
+              "chairbackrest",
+              "chairtopsphere"
+            ]
+          }
+        },
+        "chairseat": {
+          "type": "node",
+          "transforms": [
+            { "type": "translate", "amount": { "x": 0, "y": 1, "z": 0 } },
+            { "type": "scale", "amount": { "x": 4, "y": 2, "z": 4 } }
+          ],
+          "materialref": { "materialId": "redmat" },
+          "children": {
+            "chairseatbox": {
+              "type": "box",
+              "xyz1": { "x": -1, "y": -1, "z": -1 },
+              "xyz2": { "x": 1, "y": 1, "z": 1 }
+            }
+          }
+        },
+        "chairleftside": {
+          "type": "node",
+          "transforms": [
+            { "type": "translate", "amount": { "x": -4, "y": 1.5, "z": 0 } },
+            { "type": "scale", "amount": { "x": 0.3, "y": 3, "z": 4 } }
+          ],
+          "materialref": { "materialId": "redmat" },
+          "children": {
+            "chairleftbox": {
+              "type": "box",
+              "xyz1": { "x": -1, "y": -1, "z": -1 },
+              "xyz2": { "x": 1, "y": 1, "z": 1 }
+            }
+          }
+        },
+        "chairrightside": {
+          "type": "node",
+          "transforms": [
+            { "type": "translate", "amount": { "x": 4, "y": 1.5, "z": 0 } },
+            { "type": "scale", "amount": { "x": 0.3, "y": 3, "z": 4 } }
+          ],
+          "materialref": { "materialId": "redmat" },
+          "children": {
+            "chairrightbox": {
+              "type": "box",
+              "xyz1": { "x": -1, "y": -1, "z": -1 },
+              "xyz2": { "x": 1, "y": 1, "z": 1 }
+            }
+          }
+        },
+        "chairleftarmrest": {
+          "type": "node",
+          "transforms": [
+            { "type": "translate", "amount": { "x": -4, "y": 4.3, "z": 1.3 } },
+            { "type": "rotate", "amount": { "x": 90, "y": 0, "z": 0 } },
+            { "type": "scale", "amount": { "x": 0.8, "y": 6, "z": 1 } }
+          ],
+          "materialref": { "materialId": "goldmat" },
+          "children": {
+            "chairleftcylinder": {
+              "type": "cylinder",
+              "base": 1,
+              "top": 1,
+              "height": 1,
+              "slices": 16,
+              "stacks": 1,
+              "capsclose": true
+            }
+          }
+        },
+        "chairrightarmrest": {
+          "type": "node",
+          "transforms": [
+            { "type": "translate", "amount": { "x": 4, "y": 4.3, "z": 1.3 } },
+            { "type": "rotate", "amount": { "x": 90, "y": 0, "z": 0 } },
+            { "type": "scale", "amount": { "x": 0.8, "y": 6, "z": 1 } }
+          ],
+          "materialref": { "materialId": "goldmat" },
+          "children": {
+            "chairrightcylinder": {
+              "type": "cylinder",
+              "base": 1,
+              "top": 1,
+              "height": 1,
+              "slices": 16,
+              "stacks": 1,
+              "capsclose": true
+            }
+          }
+        },
+        "chairbackrest": {
+          "type": "node",
+          "transforms": [
+            { "type": "translate", "amount": { "x": 0, "y": 5, "z": -2 } },
+            { "type": "scale", "amount": { "x": 4, "y": 6, "z": 1 } }
+          ],
+          "materialref": { "materialId": "redmat" },
+          "children": {
+            "chairbackbox": {
+              "type": "box",
+              "xyz1": { "x": -1, "y": -1, "z": -1 },
+              "xyz2": { "x": 1, "y": 1, "z": 1 }
+            }
+          }
+        },
+        "chairtopsphere": {
+          "type": "node",
+          "transforms": [
+            { "type": "translate", "amount": { "x": 0, "y": 9.5, "z": -2 } },
+            { "type": "scale", "amount": { "x": 2, "y": 0.5, "z": 1.8 } }
+          ],
+          "materialref": { "materialId": "goldmat" },
+          "children": {
+            "chairtopprim": {
+              "type": "sphere",
+              "radius": 1,
+              "slices": 32,
+              "stacks": 16
+            }
+          }
+        },
+      "nutcrackernode": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 15, "y": -49.0, "z": 0}}
+        ],
+        "castshadows": true,
+        "children": {
+          "nodesList": [
+            "nutcrackerbase",
+            "nutcrackerfeet",
+            "nucrackerlegs",
+            "nutcrackerbody",
+            "nutcrackerarms",
+            "nutcrackerhead",
+            "nutcrackerface",
+            "nutcrackervest",
+            "nutcrackerbuttons",
+            "nutcrackerhat"
+          ]
+        }
+      },
+      "nutcrackerbase": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 0.2, "z": 0}}
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "goldmat"},
+        "children": {
+          "nutcrackerbasecylinder": {
+            "type": "cylinder",
+            "base": 3,
+            "top": 3,
+            "height": 0.2,
+            "slices": 16,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "nutcrackerfeet": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 0.6, "z": 0}}
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "blackmat"},
+        "children": {
+          "nodesList": [
+            "leftfoot",
+            "rightfoot"
+          ]
+        }
+      },
+      "leftfoot": {
+        "type": "node",
+        "transforms": [
+          { "type": "translate", "amount": { "x": -1, "y": 0, "z": 0 } }, 
+          { "type": "scale", "amount": { "x": 0.7, "y": 0.5, "z": 1.5 } }
+        ],
+        "castshadows": true,
+        "children": {
+        "leftfootbox": {
+            "type": "box",
+            "xyz1": { "x": -1, "y": -1, "z": -1 },
+            "xyz2": { "x": 1, "y": 1, "z": 1 }
+          }
+        }
+      },
+      "rightfoot": {
+        "type": "node",
+        "transforms": [
+          { "type": "translate", "amount": { "x": 1, "y": 0, "z": 0 } }, 
+          { "type": "scale", "amount": { "x": 0.7, "y": 0.5, "z": 1.5 } }
+        ],
+        "castshadows": true,
+        "children": {
+        "rightfootbox": {
+            "type": "box",
+            "xyz1": { "x": -1, "y": -1, "z": -1 },
+            "xyz2": { "x": 1, "y": 1, "z": 1 }
+          }
+        }
+      },
+      "nucrackerlegs": {
+        "type": "node",
+        "transforms": [
+          { "type": "translate", "amount": { "x": 0, "y": 1, "z": 0.3 } }
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "blackmat"},
+        "children": {
+          "nodesList": [
+            "leftleg",
+            "rightleg"
+          ]
+        }
+      },
+      "leftleg": {
+        "type": "node",
+        "transforms": [
+          { "type": "translate", "amount": { "x": -1, "y": 2, "z": 0 } }
+        ],
+        "castshadows": true,
+        "children": {
+        "leftlegcylinder": {
+            "type": "cylinder",
+            "base": 0.5,
+            "top": 0.5,
+            "height": 6,
+            "slices": 16,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "rightleg": {
+        "type": "node",
+        "transforms": [
+          { "type": "translate", "amount": { "x": 1, "y": 2, "z": 0 } }
+        ],
+        "castshadows": true,
+        "children": {
+        "rightlegcylinder": {
+            "type": "cylinder",
+            "base": 0.5,
+            "top": 0.5,
+            "height": 6,
+            "slices": 16,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "nutcrackerbody": {
+        "type": "node",
+        "transforms": [
+            { "type": "translate", "amount": { "x": 0, "y": 9, "z": 0 } }, 
+            { "type": "scale", "amount": { "x": 1.5, "y": 3, "z": 1 } }
+        ],
+        "castshadows": true,
+        "materialref": { "materialId": "redmat" },
+        "children": {
+            "nutcrackerbodybox": {
+                "type": "box",
+                "xyz1": { "x": -1, "y": -1, "z": -1 },
+                "xyz2": { "x": 1, "y": 1, "z": 1 }
+            }
+        }
+      },
+      "nutcrackerarms": {
+        "type": "node",
+        "transforms": [
+            { "type": "translate", "amount": { "x": 0, "y": 9.5, "z": 0 } }
+        ],
+        "castshadows": true,
+        "children": {
+            "nodesList": [
+                "leftarm",
+                "rightarm",
+                "leftshoulder",
+                "rightshoulder",
+                "lefthand",
+                "righthand"
+            ]
+        }
+      },
+      "leftshoulder": {
+        "type": "node",
+        "transforms": [
+            { "type": "translate", "amount": { "x": -2.0, "y": 1.8, "z": 0 } },
+            { "type": "scale", "amount": { "x": 0.5, "y": 0.7, "z": 1 } }
+        ],
+        "castshadows": true,
+        "materialref": { "materialId": "goldmat" },
+        "children": {
+            "leftshoulderbox": {
+                "type": "box",
+                "xyz1": { "x": -1, "y": -1, "z": -1 },
+                "xyz2": { "x": 1, "y": 1, "z": 1 }
+            }
+        }
+      },
+      "rightshoulder": {
+        "type": "node",
+        "transforms": [
+            { "type": "translate", "amount": { "x": 2.0, "y": 1.8, "z": 0 } },
+            { "type": "scale", "amount": { "x": 0.5, "y": 0.7, "z": 1 } }
+        ],
+        "castshadows": true,
+        "materialref": { "materialId": "goldmat" },
+        "children": {
+            "rightshoulderbox": {
+                "type": "box",
+                "xyz1": { "x": -1, "y": -1, "z": -1 },
+                "xyz2": { "x": 1, "y": 1, "z": 1 }
+            }
+        }
+      },
+      "leftarm": {
+          "type": "node",
+          "transforms": [
+              { "type": "translate", "amount": { "x": -2.0, "y": -0.8, "z": 0 } }, 
+              { "type": "scale", "amount": { "x": 0.5, "y": 3, "z": 0.5 } }
+          ],
+          "castshadows": true,
+          "materialref": { "materialId": "redmat" },
+          "children": {
+              "leftarmcylinder": {
+                  "type": "cylinder",
+                  "base": 0.8,
+                  "top": 0.8,
+                  "height": 1.3,
+                  "slices": 16,
+                  "stacks": 1,
+                  "capsclose": true
+              }
+          }
+      },
+      "rightarm": {
+          "type": "node",
+          "transforms": [
+              { "type": "translate", "amount": { "x": 2.0, "y": -0.8, "z": 0 } }, 
+              { "type": "scale", "amount": { "x": 0.5, "y": 3, "z": 0.5 } }
+          ],
+          "castshadows": true,
+          "materialref": { "materialId": "redmat" },
+          "children": {
+              "rightarmcylinder": {
+                  "type": "cylinder",
+                  "base": 0.8,
+                  "top": 0.8,
+                  "height": 1.3,
+                  "slices": 16,
+                  "stacks": 1,
+                  "capsclose": true
+              }
+          }
+      },
+      "lefthand": {
+          "type": "node",
+          "transforms": [
+              { "type": "translate", "amount": { "x": -2.0, "y": -2.6, "z": 0 } }
+          ],
+          "castshadows": true,
+          "materialref": { "materialId": "beigemat" },
+          "children": {
+            "lefthandsphere": {
+                "type": "sphere",
+                "radius": 0.5,
+                "slices": 32,
+                "stacks": 32
+            }
+          }
+      },
+      "righthand": {
+        "type": "node",
+        "transforms": [
+            { "type": "translate", "amount": { "x": 2.0, "y": -2.6, "z": 0 } }
+        ],
+        "castshadows": true,
+        "materialref": { "materialId": "beigemat" },
+        "children": {
+            "righthandsphere": {
+                "type": "sphere",
+                "radius": 0.5,
+                "slices": 32,
+                "stacks": 32
+            }
+        }
+      },
+      "nutcrackerhead": {
+        "type": "node",
+        "transforms": [
+            { "type": "translate", "amount": { "x": 0, "y": 13.5, "z": 0 } },
+            { "type": "scale", "amount": { "x": 1.3, "y": 1.6, "z": 1.3 } }
+        ],
+        "castshadows": true,
+        "materialref": { "materialId": "beigemat" },
+        "children": {
+          "nutcrackerheadbox": {
+              "type": "box",
+              "xyz1": { "x": -1, "y": -1, "z": -1 },
+              "xyz2": { "x": 1, "y": 1, "z": 1 }
+          }
+        }
+      },
+      "nutcrackerface": {
+        "type": "node",
+        "transforms": [
+            { "type": "translate", "amount": { "x": 0, "y": 13.5, "z": -1.35 } } 
+        ],
+        "materialref": { "materialId": "nutcrackerfacemat" },
+        "children": {
+            "nutcrackerfacerectangle": {
+                "type": "rectangle",
+                "xy1": { "x": -1.3, "y": -1.6 },
+                "xy2": { "x": 1.3, "y": 1.6 }
+            }
+        }
+      },
+      "nutcrackervest": {
+        "type": "node",
+        "transforms": [
+            { "type": "translate", "amount": { "x": 0, "y": 11.5, "z": -1.1 } } 
+        ],
+        "children": {
+          "nutcrackervesttriangle": {
+              "type": "triangle",
+              "xyz1": { "x": -1.5, "y": 0.5, "z": 0 },  
+              "xyz2": { "x": 1.5, "y": 0.5, "z": 0 },  
+              "xyz3": { "x": 0, "y": -2.0, "z": 0 }     
+          }
+        }
+      },
+      "nutcrackerbuttons": {
+        "type": "node",
+        "transforms": [
+            { "type": "translate", "amount": { "x": 0, "y": 8.8, "z": -1.1 } } 
+        ],
+        "materialref": { "materialId": "blackmat" },
+        "children": {
+          "nodesList": [
+            "button1",
+            "button2",
+            "button3"
+          ]
+        }
+      },
+      "button1": {
+        "type": "node",
+        "transforms": [
+            { "type": "translate", "amount": { "x": 0, "y": 0, "z": 0 } }
+        ],
+        "children": {
+          "button1sphere": {
+              "type": "sphere",
+              "radius": 0.2,
+              "slices": 32,
+              "stacks": 32
+          }
+        }
+      },
+      "button2": {
+        "type": "node",
+        "transforms": [
+            { "type": "translate", "amount": { "x": 0, "y": -1, "z": 0 } }
+        ],
+        "children": {
+          "button2sphere": {
+              "type": "sphere",
+              "radius": 0.2,
+              "slices": 32,
+              "stacks": 32
+          }
+        }
+      },
+      "button3": {
+        "type": "node",
+        "transforms": [
+            { "type": "translate", "amount": { "x": 0, "y": -2, "z": 0 } }
+        ],
+        "children": {
+          "button3sphere": {
+              "type": "sphere",
+              "radius": 0.2,
+              "slices": 32,
+              "stacks": 32
+          }
+        }
+      },
+      "nutcrackerhat": {
+        "type": "node",
+        "transforms": [
+            { "type": "translate", "amount": { "x": 0, "y": 16.6, "z": 0 } }
+        ],
+        "materialref": { "materialId": "blackmat" },
+        "children": {
+          "nutcrackerhatcyl": {
+              "type": "cylinder",
+              "base": 1.3,
+              "top": 1.7,
+              "height": 3,
+              "slices": 16,
+              "stacks": 1,
+              "capsclose": true
+          }
+        }
+      },
+      "christmasplacard": {
+        "type": "node",
+        "transforms": [
+            { "type": "translate", "amount": { "x": 0, "y": -44, "z": 80 } },
+            { "type": "scale", "amount": { "x": 10, "y": 10, "z": 10 } }
+        ],
+        "children": {
+            "nodesList": [
+                "placardbase",
+                "placardsupports",
+                "placardboard"
+            ]
+        }
+      },
+      "placardbase": {
+        "type": "node",
+        "transforms": [
+            { "type": "translate", "amount": { "x": 0, "y": 5, "z": 0 } },
+            { "type": "rotate", "amount": { "x": 90, "y": 0, "z": 0 } },
+            { "type": "scale", "amount": { "x": 4.5, "y": 0.2, "z": 2.5 } }
+        ],
+        "materialref": { "materialId": "metaladmat" },
+        "children": {
+            "placardbasebox": {
+                "type": "box",
+                "xyz1": { "x": -1, "y": -1, "z": -1 },
+                "xyz2": { "x": 1, "y": 1, "z": 1 }
+            }
+        }
+      },
+      "placardsupports": {
+        "type": "node",
+        "materialref": { "materialId": "metaladmat" },
+        "children": {
+            "nodesList": [
+                "leftsupport",
+                "rightsupport"
+            ]
+        }
+      },
+      "leftsupport": {
+        "type": "node",
+        "transforms": [
+            { "type": "translate", "amount": { "x": -3, "y": 1, "z": 0 } },
+            { "type": "scale", "amount": { "x": 0.2, "y": 3, "z": 0.2 } }
+        ],
+        "children": {
+            "leftsupportcyl": {
+                "type": "cylinder",
+                "base": 1,
+                "top": 1,
+                "height": 1,
+                "slices": 16,
+                "stacks": 1,
+                "capsclose": true
+            }
+          }
+      },
+      "rightsupport": {
+        "type": "node",
+        "transforms": [
+            { "type": "translate", "amount": { "x": 3, "y": 1, "z": 0 } },
+            { "type": "scale", "amount": { "x": 0.2, "y": 3, "z": 0.2 } }
+        ],
+        "children": {
+            "rightsupportcyl": {
+                "type": "cylinder",
+                "base": 1,
+                "top": 1,
+                "height": 1,
+                "slices": 16,
+                "stacks": 1,
+                "capsclose": true
+            }
+        }
+      },
+      "placardboard": {
+        "type": "node",
+        "transforms": [
+            { "type": "translate", "amount": { "x": 0, "y": 5, "z": -0.4 } },
+            { "type": "rotate", "amount": { "x": 0, "y": 180, "z": 0 } }
+        ],
+        "materialref": { "materialId": "cocaadmat" },
+        "children": {
+            "placardboardrec": {
+                "type": "rectangle",
+                "xy1": { "x": -4, "y": -2 },
+                "xy2": { "x": 4, "y": 2 }
+            }
+        }
+      },
+      "snowmannode": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": -45, "z": 0}}
+        ],
+        "castshadows": true,
+        "children": {
+          "nodesList": [
+            "snowmanfeetnode",
+            "snowmanbodynode",
+            "snowmanheadnode",
+            "snowmanhatnode",
+            "snowmaneyesnode",
+            "snowmannosenode"
+          ]
+        }
+      },
+      "snowmanfeetnode": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 0, "z": 0}}
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "snowmanmat"},
+        "children": {
+          "snowmanfeetsphere": {
+            "type": "sphere",
+            "radius": 4,
+            "slices": 32,
+            "stacks": 32
+          }
+        }
+      },
+      "snowmanbodynode": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 4, "z": 0}}
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "snowmanmat"},
+        "children": {
+          "snowmanbodysphere": {
+            "type": "sphere",
+            "radius": 3,
+            "slices": 32,
+            "stacks": 32
+          }
+        }
+      },
+      "snowmanheadnode": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 8, "z": 0}}
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "snowmanmat"},
+        "children": {
+          "snowmanheadsphere": {
+            "type": "sphere",
+            "radius": 2,
+            "slices": 32,
+            "stacks": 32
+          }
+        }
+      },
+      "snowmanhatnode": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 10, "z": 0}}
+        ],
+        "castshadows": true,
+        "children": {
+          "nodesList": [
+            "snowmanhat1node",
+            "snowmanhat2node"
+          ]
+        }
+      },
+      "snowmanhat1node": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 0, "z": 0}},
+          {"type": "scale", "amount": {"x": 1.5, "y": 0.25, "z": 1.5}}
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "snowmanhatmat"},
+        "children": {
+          "snowmanhat1box": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "snowmanhat2node": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 0.5, "z": 0}},
+          {"type": "scale", "amount": {"x": 1, "y": 0.75, "z": 1}}
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "snowmanhatmat"},
+        "children": {
+          "snowmanhat2box": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "snowmaneyesnode": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0.5, "y": 8.5, "z": -2}}
+        ],
+        "materialref": {"materialId": "snowmanhatmat"},
+        "children": {
+          "nodesList": [
+            "snowmaneye1node",
+            "snowmaneye2node"
+          ]
+        }
+      },
+      "snowmaneye1node": {
+        "type": "node",
+        "transforms": [
+          {"type": "scale", "amount": {"x": 0.25, "y": 0.25, "z": 0.25}}
+        ],
+        "materialref": {"materialId": "snowmanhatmat"},
+        "children": {
+          "snowmaneye1sphere": {
+            "type": "sphere",
+            "radius": 0.5,
+            "slices": 32,
+            "stacks": 32
+          }
+        }
+      },
+      "snowmaneye2node": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -1, "y": 0, "z": 0}},
+          {"type": "scale", "amount": {"x": 0.25, "y": 0.25, "z": 0.25}}
+        ],
+        "materialref": {"materialId": "snowmanhatmat"},
+        "children": {
+          "snowmaneye2sphere": {
+            "type": "sphere",
+            "radius": 0.5,
+            "slices": 32,
+            "stacks": 32
+          }
+        }
+      },
+      "snowmannosenode": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 8, "z": -2}},
+          {"type": "rotate", "amount": {"x": -90, "y": 0, "z": 0}}
+        ],
+        "materialref": {"materialId": "snowmannosemat"},
+        "children": {
+          "snowmannosecyl": {
+            "type": "cylinder",
+            "base": 0.3,
+            "top": 0.1,
+            "height": 2,
+            "slices": 16,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "christmastreenode": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 5, "y": -44, "z": 15}},
+          {"type": "scale", "amount": {"x": 2.5, "y": 2.5, "z": 2.5}}
+        ],
+        "castshadows": true,
+        "receiveshadows": true,
+        "materialref": {"materialId": "floormat"},
+        "children": {
+         "nodesList" : [
+            "treelayersnode",
+            "trunknode",
+            "treedecorationsnode",
+            "treestarnode"
+          ]
+        }
+      },
+      "treedecorationsnode": {
+        "type": "node",
+        "children": {
+          "nodesList": [
+            "treeribbonsnode",
+            "presentsnode",
+            "christmasballsnode",
+            "polystarsnode"
+          ]
+        }
+      },
+      "polystarsnode": {
+        "type": "node",
+        "children": {
+          "nodesList": [
+            "starpolynode1",
+            "starpolynode2",
+            "starpolynode3"
+          ]
+        }
+      },
+      "starpolynode1": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -0.8, "y": 4, "z": -2}}
+        ],
+        "children": {
+          "starpolypol1": {
+            "type": "polygon",
+            "radius": 0.4,
+            "stacks": 1,
+            "slices": 5,
+            "color_c": {"r": 0, "g": 0, "b": 1},
+            "color_p": {"r": 0, "g": 0.6, "b": 1}
+          }
+        }
+      },
+      "starpolynode2": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 6, "z": -1.2}}
+        ],
+        "children": {
+          "starpolypol2": {
+            "type": "polygon",
+            "radius": 0.3,
+            "stacks": 5,
+            "slices": 5,
+            "color_c": {"r": 0, "g": 0, "b": 1},
+            "color_p": {"r": 0, "g": 0.6, "b": 1}
+          }
+        }
+      },
+      "starpolynode3": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 2, "z": -2}}
+        ],
+        "children": {
+          "starpolypol3": {
+            "type": "polygon",
+            "radius": 0.3,
+            "stacks": 5,
+            "slices": 5,
+            "color_c": {"r": 0, "g": 0, "b": 1},
+            "color_p": {"r": 0, "g": 0.6, "b": 1}
+          }
+        }
+      },
+      "christmasballsnode": {
+        "type": "node",
+        "children": {
+          "nodesList": [
+            "christmasball1node",
+            "christmasball2node",
+            "christmasball3node",
+            "christmasball4node",
+            "christmasball5node"
+          ]
+        }
+      },
+      "presentsnode": {
+        "type": "node",
+        "children": {
+          "nodesList": [
+            "present1node",
+            "present2node"
+          ]
+        }
+      },
+      "floor": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": -50, "z": 0}},
+          {"type": "scale", "amount": {"x": 100, "y": 1, "z": 100}}
+        ],
+        "receiveshadows": true,
+        "materialref": {"materialId": "floormat"},
+        "children": {
+          "floorbox": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "cabinlod": {
+        "type": "lod",
+        "lodNodes": [
+          {
+            "nodeId": "cabin",
+            "mindist": 0
+          },
+          {
+            "nodeId": "cabinlod1",
+            "mindist": 80
+          },
+          {
+            "nodeId": "cabinlod2",
+            "mindist": 120
+          }
+        ]
+      },
+      "cabin": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -20, "y": -43.8, "z": 20}}
+        ],
+        "castshadows": true,
+        "children": {
+          "nodesList": [
+            "cabinstructure",
+            "roof",
+            "pillar1",
+            "pillar2",
+            "pillar3",
+            "pillar4",
+            "door",
+            "window1",
+            "window2",
+            "chimney"
+          ]
+        }
+      },
+      "cabinlod1": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -20, "y": -44, "z": 20}}
+        ],
+        "children": {
+          "nodesList": [
+            "cabinstructure",
+            "roof",
+            "pillar1",
+            "pillar2",
+            "pillar3",
+            "pillar4",
+            "door"
+          ]
+        }
+      },
+      "cabinlod2": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -20, "y": -44, "z": 20}}
+        ],
+        "children": {
+          "nodesList": [
+            "cabinstructure"
+          ]
+        }
+      },
+      "cabinstructure": {
+        "type": "node",
+        "transforms": [
+          {"type": "scale", "amount": {"x": 10, "y": 5, "z": 10}}
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "cabinmat"},
+        "children": {
+          "cabinstructurebox": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "pillar1": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -10, "y": 0, "z": -10}},
+          {"type": "scale", "amount": {"x": 2, "y": 2, "z": 2}}
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "treetrunkmat"},
+        "children": {
+          "pillar1cyl": {
+            "type": "cylinder",
+            "base": 0.5,
+            "top": 0.5,
+            "height": 5,
+            "slices": 16,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "pillar2": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 10, "y": 0, "z": -10}},
+          {"type": "scale", "amount": {"x": 2, "y": 2, "z": 2}}
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "treetrunkmat"},
+        "children": {
+          "pillar2cyl": {
+            "type": "cylinder",
+            "base": 0.5,
+            "top": 0.5,
+            "height": 5,
+            "slices": 16,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "pillar3": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -10, "y": 0, "z": 10}},
+          {"type": "scale", "amount": {"x": 2, "y": 2, "z": 2}}
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "treetrunkmat"},
+        "children": {
+          "pillar3cyl": {
+            "type": "cylinder",
+            "base": 0.5,
+            "top": 0.5,
+            "height": 5,
+            "slices": 16,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "pillar4": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 10, "y": 0, "z": 10}},
+          {"type": "scale", "amount": {"x": 2, "y": 2, "z": 2}}
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "treetrunkmat"},
+        "children": {
+          "pillar4cyl": {
+            "type": "cylinder",
+            "base": 0.5,
+            "top": 0.5,
+            "height": 5,
+            "slices": 16,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "door": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": -1, "z": -10}},
+          {"type": "scale", "amount": {"x": 2, "y": 4, "z": 0.1}}
+        ],
+        "materialref": {"materialId": "doormat"},
+        "children": {
+          "doorbox": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "roof": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 5, "z": 0}}
+        ],
+        "castshadows": true,
+        "children": {
+          "nodesList": [
+              "roofsideleft",
+              "roofsideright",
+              "rooffront",
+              "roofback"
+          ]
+        }
+      },
+      "roofsideleft": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 5.2, "y": 3.7, "z": 0}},  
+          {"type": "rotate", "amount": {"x": 0, "y": 0, "z": -34.4}},
+          {"type": "scale", "amount": {"x": 6.6, "y": 0.5, "z": 10}}  
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "roofcabinmat"},
+        "children": {
+          "roofsideleftbox": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},  
+            "xyz2": {"x": 1, "y": 1, "z": 1}    
+          }
+        }
+      },
+      "roofsideright": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -5.2, "y": 3.7, "z": 0}},  
+          {"type": "rotate", "amount": {"x": 0, "y": 0, "z": 34.4}},
+          {"type": "scale", "amount": {"x": 6.6, "y": 0.5, "z": 9.9}}  
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "roofcabinmat"},
+        "children": {
+          "roofsiderightbox": {
+              "type": "box",
+              "xyz1": {"x": -1, "y": -1, "z": -1},  
+              "xyz2": {"x": 1, "y": 1, "z": 1}   
+          }
+        }
+      },
+      "rooffront": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 10, "y": 0, "z": -10}},
+          {"type": "scale", "amount": {"x": 10, "y": 8, "z": 10}}
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "roofcabinmat"},
+        "children": {
+          "rooffronttri": {
+              "type": "triangle",
+              "xyz1": {"x": 0, "y": 0, "z": 0},  
+              "xyz2": {"x": -2, "y": 0, "z": 0},
+              "xyz3": {"x": -1, "y": 1, "z": 0}   
+          }
+        }
+      },
+      "roofback": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 10, "y": 0, "z": 10}},
+          {"type": "scale", "amount": {"x": 10, "y": 8, "z": 10}}
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "roofcabinmat"},
+        "children": {
+          "roofbacktri": {
+              "type": "triangle",
+              "xyz1": {"x": 0, "y": 0, "z": 0},  
+              "xyz2": {"x": -2, "y": 0, "z": 0},
+              "xyz3": {"x": -1, "y": 1, "z": 0}   
+          }
+        }
+      },
+      "window1": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -5, "y": 0, "z": -10}},
+          {"type": "scale", "amount": {"x": 2, "y": 2, "z": 0.25}}
+        ],
+        "children": {
+          "nodesList": [
+            "window1glass",
+            "window1img",
+            "window1frame1",
+            "window1frame2",
+            "window1frame3",
+            "window1frame4"
+          ]
+        }
+      },
+      "window1img": {
+        "type": "node",
+        "materialref": {"materialId": "fireplacerightmat"},
+        "children": {
+          "window1imgbox": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "window1glass": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 0, "z": -0.05}}
+        ],
+        "materialref": {"materialId": "glassmat"},
+        "children": {
+          "window1glassbox": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "window1frame1": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -1, "y": 0, "z": -1}},
+          {"type": "scale", "amount": {"x": 0.1, "y": 1.1, "z": 0.1}}
+        ],
+        "materialref": {"materialId": "windowframemat"},
+        "children": {
+          "window1frame1box": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "window1frame2": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 1, "y": 0, "z": -1}},
+          {"type": "scale", "amount": {"x": 0.1, "y": 1.1, "z": 0.1}}
+        ],
+        "materialref": {"materialId": "windowframemat"},
+        "children": {
+          "window1frame2box": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "window1frame3": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 1, "z": -1}},
+          {"type": "scale", "amount": {"x": 1.1, "y": 0.1, "z": 0.1}}
+        ],
+        "materialref": {"materialId": "windowframemat"},
+        "children": {
+          "window1frame3box": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "window1frame4": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": -1, "z": -1}},
+          {"type": "scale", "amount": {"x": 1.1, "y": 0.1, "z": 0.1}}
+        ],
+        "materialref": {"materialId": "windowframemat"},
+        "children": {
+          "window1frame4box": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "window2": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 5, "y": 0, "z": -10}},
+          {"type": "scale", "amount": {"x": 2, "y": 2, "z": 0.25}}
+        ],
+        "children": {
+          "nodesList": [
+            "window2glass",
+            "window2img",
+            "window2frame1",
+            "window2frame2",
+            "window2frame3",
+            "window2frame4"
+          ]
+        }
+      },
+      "window2img": {
+        "type": "node",
+        "materialref": {"materialId": "fireplaceleftmat"},
+        "children": {
+          "window2imgbox": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "window2glass": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 0, "z": -0.05}}
+        ],
+        "materialref": {"materialId": "glassmat"},
+        "children": {
+          "window2glassbox": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "window2frame1": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -1, "y": 0, "z": -1}},
+          {"type": "scale", "amount": {"x": 0.1, "y": 1.1, "z": 0.1}}
+        ],
+        "materialref": {"materialId": "windowframemat"},
+        "children": {
+          "window2frame1box": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "window2frame2": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 1, "y": 0, "z": -1}},
+          {"type": "scale", "amount": {"x": 0.1, "y": 1.1, "z": 0.1}}
+        ],
+        "materialref": {"materialId": "windowframemat"},
+        "children": {
+          "window2frame2box": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "window2frame3": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 1, "z": -1}},
+          {"type": "scale", "amount": {"x": 1.1, "y": 0.1, "z": 0.1}}
+        ],
+        "materialref": {"materialId": "windowframemat"},
+        "children": {
+          "window2frame3box": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "window2frame4": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": -1, "z": -1}},
+          {"type": "scale", "amount": {"x": 1.1, "y": 0.1, "z": 0.1}}
+        ],
+        "materialref": {"materialId": "windowframemat"},
+        "children": {
+          "window2frame4box": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "chimney": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -8, "y": 8, "z": -8}},
+          {"type": "scale", "amount": {"x": 1, "y": 3, "z": 1}}
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "chimneymat"},
+        "children": {
+          "chimneybox": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "treelayersnode": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 2, "z": 0}}
+        ],
+        "castshadows": true,
+        "receiveshadows": true,
+        "children": {
+          "nodesList": [
+            "treelayer1",
+            "treelayer2",
+            "treelayer3",
+            "treelayer4"
+          ]
+        }
+      },
+      "present1node": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 2, "y": -1.5, "z": 2}},
+          {"type": "scale", "amount": {"x": 0.5, "y": 0.5, "z": 0.5}}
+        ],
+        "materialref": {"materialId": "presentmat"},
+        "children": {
+          "present1box": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "present2node": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -2, "y": -1, "z": 2}}
+        ],
+        "materialref": {"materialId": "presentmat"},
+        "children": {
+          "present2ox": {
+            "type": "box",
+            "xyz1": {"x": -1, "y": -1, "z": -1},
+            "xyz2": {"x": 1, "y": 1, "z": 1}
+          }
+        }
+      },
+      "christmasball1node": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 2, "y": 3, "z": 0}},
+          {"type": "scale", "amount": {"x": 0.25, "y": 0.25, "z": 0.25}}
+        ],
+        "materialref": {"materialId": "christmasballmat"},
+        "children": {
+          "christmasball1sphere": {
+            "type": "sphere",
+            "radius": 1,
+            "slices": 32,
+            "stacks": 32
+          }
+        }
+      },
+      "christmasball2node": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -2, "y": 3, "z": 0}},
+          {"type": "scale", "amount": {"x": 0.35, "y": 0.35, "z": 0.35}}
+        ],
+        "materialref": {"materialId": "christmasballmat"},
+        "children": {
+          "christmasball2sphere": {
+            "type": "sphere",
+            "radius": 1,
+            "slices": 32,
+            "stacks": 32
+          }
+        }
+      },
+      "christmasball3node": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 1, "y": 2, "z": -2}},
+          {"type": "scale", "amount": {"x": 0.3, "y": 0.3, "z": 0.3}}
+        ],
+        "materialref": {"materialId": "christmasballmat"},
+        "children": {
+          "christmasball3sphere": {
+            "type": "sphere",
+            "radius": 1,
+            "slices": 32,
+            "stacks": 32
+          }
+        }
+      },
+      "christmasball4node": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 1, "y": 4.5, "z": -1.5}},
+          {"type": "scale", "amount": {"x": 0.3, "y": 0.3, "z": 0.3}}
+        ],
+        "materialref": {"materialId": "christmasballmat"},
+        "children": {
+          "christmasball4sphere": {
+            "type": "sphere",
+            "radius": 1,
+            "slices": 32,
+            "stacks": 32
+          }
+        }
+      },
+      "christmasball5node": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -1, "y": 4, "z": 2}},
+          {"type": "scale", "amount": {"x": 0.3, "y": 0.3, "z": 0.3}}
+        ],
+        "materialref": {"materialId": "christmasballmat"},
+        "children": {
+          "christmasball5sphere": {
+            "type": "sphere",
+            "radius": 1,
+            "slices": 32,
+            "stacks": 32
+          }
+        }
+      },
+      "trunknode": {
+        "type": "node",
+        "castshadows": true,
+        "materialref": {"materialId": "treetrunkmat"},
+        "children": {
+          "trunknodecyl": {
+            "type": "cylinder",
+            "base": 1,
+            "top": 1,
+            "height": 5,
+            "slices": 16,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "treelayer1": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 0, "z": 0}}
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "treebodylightsmat"},
+        "children": {
+          "treecylinder1": {
+            "type": "cylinder",
+            "base": 3,
+            "top": 0.3,
+            "height": 2,
+            "slices": 32,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "treelayer2": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 1.4, "z": 0}}
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "treebodylightsmat"},
+        "children": {
+          "treecylinder2": {
+            "type": "cylinder",
+            "base": 2.5,
+            "top": 0.3,
+            "height": 2,
+            "slices": 32,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "treelayer3": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 2.8, "z": 0}}
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "treebodylightsmat"},
+        "children": {
+          "treecylinder3": {
+            "type": "cylinder",
+            "base": 2,
+            "top": 0.3,
+            "height": 2,
+            "slices": 32,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "treelayer4": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 4.2, "z": 0}}
+        ],
+        "castshadows": true,
+        "materialref": {"materialId": "treebodylightsmat"},
+        "children": {
+          "treecylinder4": {
+            "type": "cylinder",
+            "base": 1.5,
+            "top": 0.3,
+            "height": 2,
+            "slices": 32,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "treeribbonsnode": {
+        "type": "node",
+        "materialref": {"materialId": "candycanemat"},
+        "children": {
+          "nodesList": [
+            "ribbon1",
+            "ribbon2"
+          ]
+        }
+      },
+      "ribbon1": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 4, "z": -1}},
+          {"type": "rotate", "amount": {"x": 110, "y": -35, "z": -15}}
+        ],
+        "children": {
+        "nurbribbon1": {
+            "type": "nurbs",
+            "degree_u": 2,
+            "degree_v": 1,
+            "parts_u": 16,
+            "parts_v": 8,
+            "controlpoints": [
+                {"x": -2, "y": 0, "z": -0.25}, {"x": -2, "y": 0, "z": 0.25},
+                {"x": 0, "y": -2.5, "z": -0.25}, {"x": 0, "y": -2.5, "z": 0.25},
+                {"x": 2, "y": 0.7, "z": -0.25}, {"x": 2, "y": 0.7, "z": 0.25}
+            ]
+          }
+        }
+      },
+      "ribbon2": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 3.8, "z": 2.0}},
+          {"type": "rotate", "amount": {"x": -110, "y": -35, "z": -15}}
+        ],
+        "children": {
+        "nurbribbon2": {
+            "type": "nurbs",
+            "degree_u": 2,
+            "degree_v": 1,
+            "parts_u": 16,
+            "parts_v": 8,
+            "controlpoints": [
+                {"x": -1.8, "y": 0, "z": -0.25}, {"x": -1.8, "y": 0, "z": 0.25},
+                {"x": 0, "y": -1.5, "z": -0.25}, {"x": 0, "y": -1.5, "z": 0.25},
+                {"x": 2, "y": 2.4, "z": -0.25}, {"x": 2, "y": 2.4, "z": 0.25}
+            ]
+          }
+        }
+      },
+      "treestarnode": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 7.8, "z": 0}},
+          {"type": "scale", "amount": {"x": 1, "y": 1, "z": 1}}
+        ],
+        "children": {
+          "nodesList": [
+            "starnode1",
+            "starnode2",
+            "starnode3"
+          ]
+        }
+      },
+      "starnode1": {
+        "type": "node",
+        "materialref": {"materialId": "treestarmat"},
+        "children": {
+          "starcylinder1": {
+            "type": "cylinder",
+            "base": 0.05,
+            "top": 0.1,
+            "height": 2,
+            "slices": 16,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "starnode2": {
+        "type": "node",
+        "transforms": [
+          {"type": "rotate", "amount": {"x": 0, "y": 0, "z": 60}}
+        ],
+        "materialref": {"materialId": "treestarmat"},
+        "children": {
+          "starcylinder2": {
+            "type": "cylinder",
+            "base": 0.1,
+            "top": 0.05,
+            "height": 2,
+            "slices": 16,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "starnode3": {
+        "type": "node",
+        "transforms": [
+          {"type": "rotate", "amount": {"x": 0, "y": 0, "z": 120}}
+        ],
+        "materialref": {"materialId": "treestarmat"},
+        "children": {
+          "starcylinder3": {
+            "type": "cylinder",
+            "base": 0.05,
+            "top": 0.1,
+            "height": 2,
+            "slices": 16,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "rivernode": {
+        "type": "node",
+        "materialref": {"materialId": "watermat"},
+        "transforms": [
+          {"type": "translate", "amount": {"x": -40, "y": -48, "z": -50}}
+        ],
+        "children": {
+          "rivernurb": {
+            "type": "nurbs",
+            "degree_u": 3,
+            "degree_v": 1,
+            "parts_u": 100,
+            "parts_v": 2,
+            "controlpoints":[
+              {"x": -60, "y": 0, "z": 20}, {"x": -60, "y": 0, "z": -20},
+              {"x": 60, "y": 0, "z": 100}, {"x": 60, "y": 0, "z": 80},
+              {"x": 80, "y": 0, "z": -80}, {"x": 80, "y": 0, "z": -100},
+              {"x": 140, "y": 0, "z": 10}, {"x": 140, "y": 0, "z": -10}
+            ]
+          }
+        }
+      },
+      "forestnode": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": -45, "z": 0}}
+        ],
+        "castshadows": true,
+        "children": {
+          "nodesList": [
+            "foresttree1",
+            "foresttree2",
+            "foresttree3",
+            "foresttree4",
+            "foresttree5",
+            "foresttree6",
+            "foresttree7",
+            "foresttree8",
+            "foresttree9",
+            "foresttree10"
+          ]
+        }
+      },
+      "foresttree1": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -50, "y": 0, "z": 0}}
+        ],
+        "children": {
+          "nodesList": [
+            "trunknode",
+            "treelayersnode"
+          ]
+        }
+      },
+      "foresttree2": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 0, "z": -60}}
+        ],
+        "children": {
+          "nodesList": [
+            "trunknode",
+            "treelayersnode"
+          ]
+        }
+      },
+      "foresttree3": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -60, "y": 0, "z": 20}}
+        ],
+        "children": {
+          "nodesList": [
+            "trunknode",
+            "treelayersnode"
+          ]
+        }
+      },
+      "foresttree4": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 60, "y": 0, "z": 0}}
+        ],
+        "children": {
+          "nodesList": [
+            "trunknode",
+            "treelayersnode"
+          ]
+        }
+      },
+      "foresttree5": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 40, "y": 0, "z": 20}}
+        ],
+        "children": {
+          "nodesList": [
+            "trunknode",
+            "treelayersnode"
+          ]
+        }
+      },
+      "foresttree6": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 20, "y": 0, "z": 40}}
+        ],
+        "children": {
+          "nodesList": [
+            "trunknode",
+            "treelayersnode"
+          ]
+        }
+      },
+      "foresttree7": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 20, "y": 0, "z": -30}}
+        ],
+        "children": {
+          "nodesList": [
+            "trunknode",
+            "treelayersnode"
+          ]
+        }
+      },
+      "foresttree8": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 40, "y": 0, "z": -20}}
+        ],
+        "children": {
+          "nodesList": [
+            "trunknode",
+            "treelayersnode"
+          ]
+        }
+      },
+      "foresttree9": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -40, "y": 0, "z": -50}}
+        ],
+        "children": {
+          "nodesList": [
+            "trunknode",
+            "treelayersnode"
+          ]
+        }
+      },
+      "foresttree10": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 60, "y": 0, "z": -30}}
+        ],
+        "children": {
+          "nodesList": [
+            "trunknode",
+            "treelayersnode"
+          ]
+        }
+      },
+      "streetlampsnode": {
+        "type": "node",
+        "castshadows": true,
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": -45, "z": 0}}
+        ],
+        "children": {
+          "nodesList": [
+            "streetlamp1",
+            "streetlamp2",
+            "streetlamp3",
+            "streetlamp4"
+          ]
+        }
+      },
+      "streetlamp1": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -20, "y": 0, "z": -10}}
+        ],
+        "children": {
+          "nodesList": [
+            "streetlamptrunk",
+            "streetlampshade"
+          ]
+        }
+      },
+      "streetlamp2": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 60, "y": 0, "z": -10}}
+        ],
+        "children": {
+          "nodesList": [
+            "streetlamptrunk",
+            "streetlampshade"
+          ]
+        }
+      },
+      "streetlamp3": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": -70, "y": 0, "z": 10}}
+        ],
+        "children": {
+          "nodesList": [
+            "streetlamptrunk",
+            "streetlampshade"
+          ]
+        }
+      },
+      "streetlamp4": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 30, "y": 0, "z": 20}}
+        ],
+        "children": {
+          "nodesList": [
+            "streetlamptrunk",
+            "streetlampshade"
+          ]
+        }
+      },
+      "streetlamptrunk": {
+        "type": "node",
+        "castshadows": true,
+        "materialref": {"materialId": "treetrunkmat"},
+        "children": {
+          "streetlamptrunkcyl": {
+            "type": "cylinder",
+            "base": 0.5,
+            "top": 0.5,
+            "height": 5,
+            "slices": 16,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "streetlampshade": {
+        "type": "node",
+        "materialref": {"materialId": "streetlampshademat"},
+        "castshadows": true,
+        "children": {
+          "nodesList": [
+            "streetlampshade1",
+            "streetlampshade2",
+            "streetlampshade3",
+            "streetlampshade4"
+          ]
+        }
+      },
+      "streetlampshade1": {
+        "type": "node",
+        "children": {
+          "streetlampshade1cyl": {
+            "type": "cylinder",
+            "base": 1,
+            "top": 0.5,
+            "height": 1,
+            "slices": 16,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "streetlampshade2": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 1, "z": 0}}
+        ],
+        "children": {
+          "streetlampshade2cyl": {
+            "type": "cylinder",
+            "base": 0.5,
+            "top": 1,
+            "height": 1,
+            "slices": 16,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "streetlampshade3": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 2, "z": 0}}
+        ],
+        "children": {
+          "streetlampshade3cyl": {
+            "type": "cylinder",
+            "base": 1,
+            "top": 0.5,
+            "height": 1,
+            "slices": 16,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      },
+      "streetlampshade4": {
+        "type": "node",
+        "transforms": [
+          {"type": "translate", "amount": {"x": 0, "y": 3, "z": 0}}
+        ],
+        "children": {
+          "streetlampshade4cyl": {
+            "type": "cylinder",
+            "base": 0.5,
+            "top": 1,
+            "height": 1,
+            "slices": 16,
+            "stacks": 1,
+            "capsclose": true
+          }
+        }
+      }
+    }
+  }
+}
