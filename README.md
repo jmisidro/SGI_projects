@@ -11,6 +11,7 @@
 ## Projects
 
 ### [TP1 - ThreeJS Basics](tp1)
+**Final Grade**: 18.4
 
 - A simple room full of objects around a table.
 <p align="center">
@@ -18,10 +19,10 @@
     <p align="center">First Project Overview</p>
 </p>
 
-
 -----
 
 ### [TP2 - Development of a 3D Graphics Application](tp2)
+**Final Grade**: 18.8
 
 - A Christmas themed cabin in snowy forest.
 <p align="center">
@@ -31,6 +32,12 @@
 
 ----
 
-### [TP3 - ...](tp3)
-- (items briefly describing main strong points)
+### [TP3 - Development of a game](tp3)
+**Final Grade**: 18.2
+
+- A ballon racing game.
+<p align="center">
+    <img src="tp3/screenshots/playing.png">
+    <p align="center">Third Project Overview</p>
+</p>
 
